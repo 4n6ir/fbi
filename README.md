@@ -12,6 +12,7 @@ options:
   -d, --download        Download Bloom Filter
   -o OUTPUT, --output OUTPUT
                         Output Directory
+  -u, --updated         Bloom Filter Last Updated
   -v, --version         show program's version number and exit
 ```
 
@@ -70,6 +71,18 @@ https://b3.lukach.io/amzn/sector
 API keys are available using the self-registration process.
 
 https://store.lukach.io/l/b3
+
+### LAST UPDATED
+
+Check when the bloom filter was last updated using the command line interface (CLI).
+
+```
+fbi -u
+```
+
+Or by hitting the provided website for the last updated timestamp.
+
+https://static.fileblock.info/fbi.updated
 
 ### ANALYSIS
 

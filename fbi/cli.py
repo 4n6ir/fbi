@@ -94,6 +94,16 @@ def blocks(input, output):
             f.close()
         o.close()
 
+def updated():
+
+    r = requests.get('https://static.fileblock.info/fbi.updated')
+    if r.status_code == 200:
+        print('SUCCESS: https://static.fileblock.info/fbi.updated')
+        print('LAST UPDATED: '+r.text)
+    else:
+        print('FAILED: https://static.fileblock.info/fbi.updated')
+        sys.exit(1)
+
 def verify():
 
     r = requests.get('https://static.fileblock.info/fbi.sha256')
@@ -110,6 +120,7 @@ def main():
     parser.add_argument('-b', '--blocks', help='Input Filename', required=False)
     parser.add_argument('-d', '--download', help='Download Bloom Filter', action='store_true')
     parser.add_argument('-o', '--output', help='Output Directory', required=False)
+    parser.add_argument('-u', '--updated', help='Bloom Filter Last Updated', action='store_true')
     parser.add_argument('-v', '--version', action='version', version=__version__)
     args = parser.parse_args()
 
@@ -122,5 +133,7 @@ def main():
             output = pathlib.Path().absolute()
         with concurrent.futures.ThreadPoolExecutor() as executor:
             executor.submit(blocks, args.blocks, output)
+    elif args.updated:
+        updated()
     else:
         print('USAGE: fbi -h')
