@@ -84,6 +84,10 @@ Or by hitting the provided website for the last updated timestamp.
 
 https://static.fileblock.info/fbi.updated
 
+### COUNT
+
+https://static.fileblock.info/fbi.count
+
 ### ANALYSIS
 
 The analyzed file allows both the absolute and relative location.
